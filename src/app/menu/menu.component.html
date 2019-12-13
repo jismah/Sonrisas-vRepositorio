@@ -1,0 +1,485 @@
+<app-navbar></app-navbar>
+
+<!--CONTENIDO-->
+<script
+  src="https://cdn.rawgit.com/mdehoog/Semantic-UI/6e6d051d47b598ebab05857545f242caf2b4b48c/dist/semantic.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+
+    $('#fechadenacimiento').calendar({
+      type: 'date'
+    });
+
+
+
+    $('#hora').calendar({
+      type: 'time'
+    });
+
+    $('#fecha').calendar({
+      type: 'date'
+    });
+
+    $('#hora2').calendar({
+      type: 'time'
+    });
+
+    $('#fecha2').calendar({
+      type: 'date'
+    });
+
+
+  });
+</script>
+
+
+<div id="maincontent" class="ui main container">
+
+  <div class="ui raised center aligned blue segment">
+    <h2>Opciones Principales</h2>
+  </div>
+
+
+  <div class="ui hidden divider " id="pacientes"></div>
+
+  <div class="ui stackable grid">
+
+    <div class="nine wide column">
+      <div class="ui raised blue segment">
+        <a class="ui blue ribbon label">Formulario de pacientes</a>
+
+        <form (ngSubmit)="newPaciente(newPacienteForm.value)" [formGroup]="newPacienteForm" id="contaniner"
+          class="ui form">
+          <div class="ui hidden divider"></div>
+
+          <div class="two fields">
+
+            <div class="field">
+              <label>Nombre</label>
+              <div class="ui input">
+                <input type="text" placeholder="Nombre del paciente" formControlName="nombre">
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Apellido</label>
+              <div class="ui input">
+                <input type="text" placeholder="Apellido del paciente" formControlName="apellido">
+              </div>
+            </div>
+          </div>
+
+          <div class="two fields">
+            <div class="field">
+              <label>Cédula</label>
+
+              <div class="ui input">
+                <input type="text" placeholder="Cédula del paciente" formControlName="cedula">
+              </div>
+            </div>
+
+
+
+            <div class="field">
+              <label>Email</label>
+
+              <div class="ui input">
+                <input type="text" placeholder="Correo del paciente" formControlName="mail">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="two fields">
+
+            <div class="field">
+              <label>Télefono</label>
+              <div class="ui input">
+                <input type="text" placeholder="Télefono del paciente" formControlName="telefono">
+              </div>
+            </div>
+
+
+
+            <div class="field">
+              <label>Direccion</label>
+              <div class="ui input">
+                <input type="text" placeholder="Direccion del paciente" formControlName="direccion">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="two fields">
+
+            <div class="field">
+              <label>Alergias y Padecimientos</label>
+              <textarea rows="2" formControlName="alergiasypadecimientos"></textarea>
+            </div>
+
+
+
+            <div class="field">
+              <label>Sexo</label>
+              <div class="ui input">
+                <input type="text" placeholder="Sexo del paciente" formControlName="sexo" list="s">
+                <datalist id="s">
+                  <option value="Masculino"></option>
+                  <option value="Femenino"></option>
+                </datalist>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="two fields">
+
+            <div class="field">
+              <label>Fecha de Nacimiento</label>
+              <div class="ui calendar" id="fechadenacimiento">
+                <div class="ui input left icon">
+                  <i class="calendar icon"></i>
+                  <input type="text" placeholder="" formControlName="fecha_nacimiento">
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Antecedentes Familiares</label>
+              <div class="ui input">
+                <input type="text" placeholder="Antecedentes Familiares del paciente" formControlName="antecedentes">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="two fields">
+
+            <div class="field">
+              <label>Contacto de Emergencia</label>
+              <div class="ui input">
+                <input type="text" placeholder="Télefono de un contacto conocido" formControlName="contacto">
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Parentesco</label>
+              <div class="ui input">
+                <input type="text" placeholder="Parentesco del familiar" formControlName="parentesco" list="p">
+                <datalist id="p">
+                  <option value="Primo/a"></option>
+                  <option value="Tio/a"></option>
+                  <option value="Padre/Madre"></option>
+                  <option value="Abuelo/a"></option>
+                  <option value="Hijo/a"></option>
+                  <option value="Hermano/a"></option>
+                </datalist>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="field">
+            <label>Anotaciones</label>
+            <div class="ui input">
+              <textarea rows="2" formControlName="nota"></textarea>
+            </div>
+          </div>
+          <input type="submit" class="ui primary button" value="Guardar">
+        </form>
+
+      </div>
+
+      <!--FORMULARIO DE CITAS-->
+
+      <div class="ui hidden divider" id="citas"></div>
+
+      <div class="ui raised orange segment">
+        <a class="ui ribbon orange label">Formulario de Citas</a>
+        <form (ngSubmit)="newCita(newCitaForm.value)" [formGroup]="newCitaForm" id="container1" class="ui form">
+          <div class="ui hidden divider"></div>
+
+          <div class="two fields">
+
+            <div class="field">
+
+              <label>Paciente</label>
+              <input type="text" formControlName="cedula" list="c">
+              <datalist id="c">
+                <option *ngFor="let paciente of pacientes" value="{{paciente.id}}">{{paciente.data}} {{paciente.data1}}
+                </option>
+              </datalist>
+            </div>
+
+
+            <div class="field">
+              <label>Motivo de Consulta</label>
+              <div class="ui input">
+                <textarea rows="2" formControlName="motivo"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="two fields">
+
+            <div class="field">
+
+              <label>Servicio</label>
+              <input type="text" formControlName="servicio" list="servicio">
+              <datalist id="servicio">
+                <option *ngFor="let servicio of servicios" value="{{servicio.data.nombre}}">{{servicio.data.nombre}}
+                </option>
+              </datalist>
+
+            </div>
+
+            <div class="field">
+
+              <label>Dentista</label>
+              <input type="text" formControlName="dentista" list="d">
+              <datalist id="d">
+                <option *ngFor="let dentista of dentistas" value="{{dentista.id}}">{{dentista.data}} {{dentista.data1}}
+                  | {{dentista.data2}}</option>
+              </datalist>
+            </div>
+
+          </div>
+          <div class="two fields">
+
+            <div class="field">
+              <label>Fecha</label>
+              <div class="ui calendar" id="fecha">
+                <div class="ui input left icon">
+                  <i class="calendar icon"></i>
+                  <input type="text" formControlName="fecha">
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Hora</label>
+              <div class="ui calendar" id="hora">
+                <div class="ui input left icon">
+                  <i class="time icon"></i>
+                  <input type="text" formControlName="hora">
+                </div>
+              </div>
+            </div>
+          </div>
+          <input type="submit" class="ui orange button" value="Guardar">
+        </form>
+      </div>
+
+      <!--FIN-->
+
+
+      <!--CONSULTA PROCEDIMIENTOS-->
+
+      <div class="ui hidden divider" id="procedimiento"></div>
+
+      <div class="ui raised red segment">
+        <a class="ui ribbon red label">Procedimientos Realizados</a>
+        <form (ngSubmit)="newProcedimiento(newProcedimientoForm.value)" [formGroup]="newProcedimientoForm"
+          id="container" class="ui form">
+          <div class="ui hidden divider"></div>
+
+          <div class="two fields">
+
+            <div class="field">
+              <label>Codigo de identificacion doctor</label>
+              <div class="ui input">
+                <input type="text" placeholder="Codigo de identificacion del doctor " list="d"
+                  formControlName="cedula_doctor">
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Fecha</label>
+              <div class="ui calendar" id="fecha2">
+                <div class="ui input left icon">
+                  <i class="calendar icon"></i>
+                  <input type="text" formControlName="fecha">
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+
+          <div class="two fields">
+
+            <div class="field">
+              <label>Codigo de identificacion paciente</label>
+              <div class="ui input">
+                <input type="text" placeholder="Codigo de identificacion del paciente" list="c"
+                  formControlName="cedula_paciente">
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Hora</label>
+              <div class="ui calendar" id="hora2">
+                <div class="ui input left icon">
+                  <i class="time icon"></i>
+                  <input type="text" formControlName="hora">
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="two fields">
+
+            <div class="field">
+              <label>Procedimientos</label>
+              <div class="ui input">
+                <textarea rows="2" formControlName="procedimientos"></textarea>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Pieza Realizada</label>
+              <div class="ui input">
+                <input type="text" placeholder="Pieza trabajada al paciente" formControlName="pieza">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="ui hidden divider"></div>
+
+          <input type="submit" class="ui red button" value="Registrar">
+
+        </form>
+
+        <div class="ui hidden divider" id="facturacion"></div>
+
+        <a class="ui ribbon violet label">Facturacion</a>
+
+        <div class="ui hidden divider"></div>
+
+        <div id="factura">
+          <table class="ui single line violet unstackable table" id="pdfTable">
+            <thead>
+              <tr>
+                <th>Cod Doctor</th>
+                <th>Cod Paciente</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Pieza</th>
+                <th>Procedimientos</th>
+                <th>Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let fac of factura">
+                <td> {{fac[0]}} </td>
+                <td> {{fac[1]}} </td>
+                <td> {{fac[2]}} </td>
+                <td> {{fac[3]}} </td>
+                <td> {{fac[4]}} </td>
+                <td> {{fac[5]}} </td>
+                <td> {{fac[6]}} </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Precio Total</th>
+                <th>$</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+
+        <div class="ui hidden divider"></div>
+
+        <div class="ui violet button" (click)="generarPDF()"><i class="icon calculator"></i>
+          Facturar
+        </div>
+
+
+      </div>
+
+
+      <!--FIN-->
+
+    </div>
+    <div class="seven wide column">
+      <div class="ui inverted center aligned segment">
+        <div class="ui inverted small horizontal statistic">
+          <div class="value">
+            15
+          </div>
+          <div class="label">
+            Citas para Hoy
+          </div>
+        </div>
+      </div>
+
+
+      <table class="ui small very compact unstackable selectable blue table">
+        <thead>
+          <tr>
+            <th colspan="3">
+              Pacientes con citas para hoy
+            </th>
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let paciente of pacientes">
+          <tr *ngFor=" let cita of citas">
+            <div *ngFor="let dentista of dentistas">
+              <td *ngIf="cita.data1 == paciente.id && cita.data == dentista.id && cita.data3 == '03/12/2019'">
+                <strong></strong>{{paciente.data}} {{paciente.data1}} tiene una cita con {{dentista.data}}
+                {{dentista.data1}} a las {{cita.data2}}
+              </td>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="ui small very compact unstackable selectable orange table">
+        <thead>
+          <tr>
+            <th colspan="2">
+              Siste utgående
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Aluminium</td>
+            <td class="right aligned">11,42</td>
+          </tr>
+          <tr>
+            <td>Jern</td>
+            <td class="right aligned">6,36</td>
+          </tr>
+          <tr>
+            <td>Gummi</td>
+            <td class="right aligned">5,60</td>
+          </tr>
+          <tr>
+            <td>Gummi</td>
+            <td class="right aligned">8,20</td>
+          </tr>
+          <tr>
+            <td>Jern</td>
+            <td class="right aligned">5,70</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

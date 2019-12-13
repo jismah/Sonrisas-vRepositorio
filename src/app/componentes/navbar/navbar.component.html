@@ -1,0 +1,57 @@
+<div class="ui fixed borderless inverted menu navbar">
+  <div class="ui container">
+    <div class="header item">
+      Administracion Panel
+
+    </div>
+
+    <a class="ui dropdown item">
+      Menu 
+      <i class="dropdown icon"></i>
+      <div class="menu">
+          <a class="item" href="#pacientes">
+              <i class="address book icon"></i>
+            Pacientes
+          </a>
+    
+          <a class="item" href="#citas">
+              <i class="calendar alternate icon"></i>
+            Citas
+          </a>
+    
+          <a class="item" href="#procedimiento">
+              <i class="clipboard icon"></i>
+            Procedimientos
+          </a>
+    
+          <a class="item" href="#facturacion">
+              <i class="dollar sign icon"></i>
+            Facturacion
+          </a>
+      </div>
+  </a>
+
+    <a class="item" href="dentistas">
+      <i class="user md icon"></i>
+    Dentistas
+    </a>
+
+    
+
+    <div class="right menu">
+      <div class="borderless item">
+          <button class="ui vertical animated inverted red button" (click)="signOut()" *ngIf="authenticationService.userData | async" tabindex="0"
+          routerLink="/">
+              <div class="hidden content">Salir</div>
+              <div class="visible content">
+                <i class="power off icon"></i>
+              </div>
+          </button>
+
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,176 @@
+ /* GLOBAL */
+
+ *{
+  font-family: 'Almarai', sans-serif;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: grayscale;
+    
+  }
+
+
+/* PRESENTACION */
+
+  .seg2 {
+    color: rgb(0, 0, 0);
+  }
+
+  h1.ui.header.header2 {
+    font-size: 8em;
+    font-weight: 100;
+    letter-spacing: 4px;
+    font-family: 'Cookie', cursive;
+
+  }
+
+  h1.ui.header.header3 {
+    font-size: 4em;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-family: 'Cookie', cursive;
+
+  }
+
+
+
+  h1.ui.header {
+    font-size: 5em;
+    font-weight: 100;
+    letter-spacing: 6px;
+  }
+
+  .quote.stripe.segment{
+    background-color: rgb(255, 255, 255);
+
+  }
+
+
+  .minihead {
+    min-height: 45vh;
+    padding: 1em 0em;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('../../assets/us.jpg')  !important;
+    background-size: cover !important;
+    height: 90%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+
+  }
+
+  .hidden.menu {
+    display: none;
+  }
+
+  .item {
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .s-header{
+    font-family: 'Great Vibes', cursive;
+  }
+
+  .logo.item{
+    font-family: 'Great Vibes', cursive;
+    font-size: 30px;
+  }
+
+  .s-header-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .ui.fixed.menu{
+      background-color: rgba(0, 0, 0, 0) !important;
+      padding-right: 8% !important;
+      padding-left: 8% !important;
+      font-family: 'Almarai', sans-serif;
+  }
+
+  .masthead.segment {
+    min-height: 100vh;
+    padding: 1em 0em;
+    background: linear-gradient(rgba(0, 0, 0, 0.904), rgba(0, 0, 0, 0.603)), url('https://lambtonshoresfamilydental.ca/wp-content/uploads/2017/07/dentist-banner.jpg')  !important;
+    background-size: cover !important;
+    height: 90%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+
+  .masthead .logo.item img {
+    margin-right: 1em;
+  }
+  .masthead .ui.menu .ui.button {
+    margin-left: 0.5em;
+  }
+  .masthead h2 {
+    font-size: 1.7em;
+    font-weight: normal;
+    font-family: 'Almarai', sans-serif;
+  }
+  .ui.vertical.stripe {
+    padding: 8em 0em;
+  }
+  .ui.vertical.stripe h3 {
+    font-size: 2em;
+  }
+  .ui.vertical.stripe .button + h3,
+  .ui.vertical.stripe p + h3 {
+    margin-top: 3em;
+  }
+  .ui.vertical.stripe .floated.image {
+    clear: both;
+  }
+  .ui.vertical.stripe p {
+    font-size: 1.33em;
+  }
+  .ui.vertical.stripe .horizontal.divider {
+    margin: 3em 0em;
+  }
+  .quote.stripe.segment {
+    padding: 0em;
+  }
+  .quote.stripe.segment .grid .column {
+    padding-top: 5em;
+    padding-bottom: 5em;
+  }
+  .footer.segment {
+    padding: 3em 0em;
+  }
+  .secondary.pointed.menu .toc.item {
+    display: none;
+  }
+  @media only screen and (max-width: 700px) {
+    .ui.fixed.menu {
+      display: none !important;
+    }
+    .secondary.pointing.menu .item,
+    .secondary.pointing.menu .menu {
+      display: none;
+    }
+    .secondary.pointing.menu .toc.item {
+      display: block;
+    }
+    .masthead.segment {
+      min-height: 350px;
+    }
+    .masthead h1.ui.header {
+      font-size: 2em;
+      margin-top: 1.5em;
+    }
+    .masthead h2 {
+      margin-top: 0.5em;
+      font-size: 1.5em;
+    }
+  }
+  @media only screen and (max-device-width: 1366px) {
+    .parallax {
+      background-attachment: scroll;
+    }
+  }
