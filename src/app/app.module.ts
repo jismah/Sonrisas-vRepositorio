@@ -24,15 +24,18 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { DentistasComponent } from './dentistas/dentistas.component';
 import { Page404Component } from './page404/page404.component';
 
+import { AuthGuard } from "./guards/auth.guard";
+
 const routes: Routes = [
 
-  { path: '', component: MainpageComponent, pathMatch: 'full' },
-  { path: 'adminPanel', component: MenuComponent, pathMatch: 'full' },
+  { path: '', component: MainpageComponent, pathMatch: 'full'},
+  { path: 'adminPanel', component: MenuComponent, pathMatch: 'full', canActivate: [AuthGuard]},
   { path: 'dentistas', component: DentistasComponent, pathMatch: 'full' },
   { path: '404pageNotFound', component: Page404Component, pathMatch: 'full' },
 
   { path: '**', redirectTo: '404pageNotFound', pathMatch: 'full' }
 ];
+
 
 
 

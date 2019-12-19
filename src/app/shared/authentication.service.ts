@@ -52,6 +52,7 @@ export class AuthenticationService {
       .signOut()
       .then(res => {
         console.log('Cerraste Sesion');
+        this.router.navigate(['']);
       }).catch(err => {
         console.log('Something is wrong:',err.message);
       });
