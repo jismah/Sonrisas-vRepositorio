@@ -3,6 +3,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { MenuComponent } from '../menu/menu.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { MenuComponent } from '../menu/menu.component';
 export class AuthenticationService {
   userData: Observable<firebase.User>;
 
-  constructor(private angularFireAuth: AngularFireAuth, private router: Router) {
+  constructor(private angularFireAuth: AngularFireAuth, private router: Router, private toastr: ToastrService) {
     this.userData = angularFireAuth.authState;
    }
 
@@ -35,12 +36,20 @@ export class AuthenticationService {
       .auth
       .signInWithEmailAndPassword(email, password)
       .then(res => {
-        console.log('Iniciaste Sesion!');
+
+        this.toastr.success('Ingresaste al Panel Correctamente', 'Iniciaste Sesion!', {
+          progressBar: true
+        });
+
         this.router.navigate(['adminPanel']);
         
       })
       .catch(err => {
         console.log('Something is wrong:',err.message);
+
+        this.toastr.error('Revise los campos ingresados', 'Acceso Denegado!', {
+          progressBar: true
+        });
       });
   }
 

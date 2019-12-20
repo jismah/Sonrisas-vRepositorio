@@ -8,8 +8,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './menu/menu.component';
 import { MainpageComponent } from './mainpage/mainpage.component';
 
+import { ToastrModule } from 'ngx-toastr';
 
-//Ganzo
+
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -53,6 +54,12 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-right',
+  
+      preventDuplicates: true
+    }),
     [RouterModule.forRoot(routes)],
     FormsModule,
     ReactiveFormsModule,
