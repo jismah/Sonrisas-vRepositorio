@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+
 
 <!--CONTENIDO-->
 <script
@@ -36,17 +36,22 @@
 
 <div id="maincontent" class="ui main container">
 
-  <div class="ui raised center aligned blue segment">
-    <h2>Opciones Principales</h2>
-  </div>
+  
 
 
-  <div class="ui hidden divider " id="pacientes"></div>
+  <div class="ui hidden divider"></div>
 
   <div class="ui stackable grid">
 
     <div class="nine wide column">
-      <div class="ui raised blue segment">
+
+      <div class="ui raised center aligned inverted segment">
+        <h2>Formularios de Datos</h2>
+      </div>
+
+      <div class="ui hidden divider"></div>
+
+      <div class="ui secondary raised blue segment">
         <a class="ui blue ribbon label">Formulario de pacientes</a>
 
         <form (ngSubmit)="newPaciente(newPacienteForm.value)" [formGroup]="newPacienteForm" id="contaniner"
@@ -166,7 +171,7 @@
             <div class="field">
               <label>Parentesco</label>
               <div class="ui input">
-                <input type="text" placeholder="Parentesco del familiar" formControlName="parentesco" list="p">
+                <input type="text" name="parentesc" placeholder="Parentesco del familiar" formControlName="parentesco" list="p">
                 <datalist id="p">
                   <option value="Primo/a"></option>
                   <option value="Tio/a"></option>
@@ -196,7 +201,7 @@
 
       <div class="ui hidden divider" id="citas"></div>
 
-      <div class="ui raised orange segment">
+      <div class="ui secondary raised orange segment">
         <a class="ui ribbon orange label">Formulario de Citas</a>
         <form (ngSubmit)="newCita(newCitaForm.value)" [formGroup]="newCitaForm" id="container1" class="ui form">
           <div class="ui hidden divider"></div>
@@ -279,7 +284,7 @@
 
       <div class="ui hidden divider" id="procedimiento"></div>
 
-      <div class="ui raised red segment">
+      <div class="ui secondary raised red segment">
         <a class="ui ribbon red label">Procedimientos Realizados</a>
         <form (ngSubmit)="newProcedimiento(newProcedimientoForm.value)" [formGroup]="newProcedimientoForm"
           id="container" class="ui form">
@@ -402,7 +407,7 @@
 
         <div class="ui hidden divider"></div>
 
-        <div class="ui violet button" (click)="generarPDF()"><i class="icon calculator"></i>
+        <div class="ui violet button"><i class="icon calculator"></i>
           Facturar
         </div>
 
@@ -414,10 +419,18 @@
 
     </div>
     <div class="seven wide column">
-      <div class="ui inverted center aligned segment">
-        <div class="ui inverted small horizontal statistic">
+
+      <div class="ui raised center aligned inverted segment">
+        <h2>Informaciones</h2>
+      </div>
+
+      <div class="ui hidden divider"></div>
+
+
+      <div class="ui tertiary center aligned segment">
+        <div class="ui small horizontal statistic">
           <div class="value">
-            15
+            ~
           </div>
           <div class="label">
             Citas para Hoy
@@ -447,38 +460,6 @@
         </tbody>
       </table>
 
-      <table class="ui small very compact unstackable selectable orange table">
-        <thead>
-          <tr>
-            <th colspan="2">
-              Siste utgående
-            </th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>Aluminium</td>
-            <td class="right aligned">11,42</td>
-          </tr>
-          <tr>
-            <td>Jern</td>
-            <td class="right aligned">6,36</td>
-          </tr>
-          <tr>
-            <td>Gummi</td>
-            <td class="right aligned">5,60</td>
-          </tr>
-          <tr>
-            <td>Gummi</td>
-            <td class="right aligned">8,20</td>
-          </tr>
-          <tr>
-            <td>Jern</td>
-            <td class="right aligned">5,70</td>
-          </tr>
-        </tbody>
-      </table>
 
     </div>
   </div>

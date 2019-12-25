@@ -57,8 +57,7 @@ const routes: Routes = [
     ToastrModule.forRoot({
       timeOut: 5000,
       positionClass: 'toast-bottom-right',
-  
-      preventDuplicates: true
+      preventDuplicates: false
     }),
     [RouterModule.forRoot(routes)],
     FormsModule,
