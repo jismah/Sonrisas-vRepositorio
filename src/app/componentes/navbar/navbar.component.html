@@ -1,52 +1,50 @@
-<div class="ui fixed borderless inverted menu navbar">
+<div class="ui fixed borderless inverted pointing menu navbar">
   <div class="ui container">
-    <div class="header item">
+    <div class="header active item">
       Administracion Panel
-
     </div>
-
-    <a class="ui dropdown item">
-      Menu 
+    
+    <div class="ui simple dropdown link item">
+      <span class="text">Opciones</span>
       <i class="dropdown icon"></i>
       <div class="menu">
-          <a class="item" href="#pacientes">
-              <i class="address book icon"></i>
-            Pacientes
-          </a>
-    
-          <a class="item" href="#citas">
-              <i class="calendar alternate icon"></i>
-            Citas
-          </a>
-    
-          <a class="item" href="#procedimiento">
-              <i class="clipboard icon"></i>
-            Procedimientos
-          </a>
-    
-          <a class="item" href="#facturacion">
-              <i class="dollar sign icon"></i>
-            Facturacion
-          </a>
+        <div class="header">Accesos</div>
+        <a class="item" href="adminPanel">
+          <i class="clipboard icon"></i>
+          Menu
+        </a>
+        <a class="item" href="dentistas">
+          <i class="user md icon"></i>
+          Dentistas
+        </a>
+        <div class="divider"></div>
+        <div class="header">Proximamente</div>
+        <div class="item">...</div>
+        <div class="item">...</div>
       </div>
-  </a>
+    </div>
 
-    <a class="item" href="dentistas">
-      <i class="user md icon"></i>
-    Dentistas
-    </a>
+   
+    
 
     
+
+
 
     <div class="right menu">
+
       <div class="borderless item">
-          <button class="ui vertical animated inverted red button" (click)="signOut();"  tabindex="0"
-          >
-              <div class="hidden content">Salir</div>
-              <div class="visible content">
-                <i class="power off icon"></i>
-              </div>
-          </button>
+
+       
+        <div class="ui hidden vertical divider"></div>
+        <div class="ui hidden vertical divider"></div>
+
+        <button class="ui vertical animated inverted red button" (click)="signOut();" tabindex="0">
+          <div class="hidden content">Salir</div>
+          <div class="visible content">
+            <i class="power off icon"></i>
+          </div>
+        </button>
 
 
       </div>

@@ -27,6 +27,9 @@ import { Page404Component } from './page404/page404.component';
 
 import { AuthGuard } from "./guards/auth.guard";
 
+// ADICIONALES 
+import { NgxSpinnerModule } from "ngx-spinner";
+
 const routes: Routes = [
 
   { path: '', component: MainpageComponent, pathMatch: 'full'},
@@ -53,6 +56,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxSpinnerModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 5000,

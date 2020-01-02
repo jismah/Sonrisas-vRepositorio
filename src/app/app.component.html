@@ -1,2 +1,11 @@
-<app-navbar *ngIf="authenticationService.userData | async"></app-navbar>
+<ngx-spinner
+  bdOpacity = 0.9
+  bdColor="#ffffff"
+  size="medium"
+  color="#000659"
+  type="ball-atom"
+  [fullScreen] = "true"
+>
+  <p style="font-size: 16px; color: rgb(0, 4, 43)">Cargando...</p>
+</ngx-spinner>
 <router-outlet></router-outlet>

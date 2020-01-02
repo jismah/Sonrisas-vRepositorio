@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Sonrisas Dental</title>
@@ -10,13 +11,15 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Almarai:300&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Satisfy&display=swap" rel="stylesheet">
 
   <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
 
@@ -33,151 +36,151 @@
 
 
   <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
 
       $('.ui.modal')
-         .modal({ blurring: true })
+        .modal({ blurring: true })
         .modal('setting', 'transition', 'fade up')
         .modal('attach events', '.cita.button', 'show')
-       ;
+        ;
 
 
 
-      
 
-    
+
+
 
       $('.ui.form')
         .form({
           fields: {
             email: {
-            identifier: 'email',
-             rules: [
-          {
-            type   : 'email',
-            prompt : 'Ingresa tu email para validar'
-          }
-        ]
-      },
-      password: {
-        identifier: 'password',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Hace falta una contraseña'
-          }
-        ]
-      },
-      name: {
-            identifier: 'name',
-             rules: [
-          {
-            type   : 'empty',
-            prompt : 'Inserta tu nombre'
-          }
-        ]
-      },
+              identifier: 'email',
+              rules: [
+                {
+                  type: 'email',
+                  prompt: 'Ingresa tu email para validar'
+                }
+              ]
+            },
+            password: {
+              identifier: 'password',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Hace falta una contraseña'
+                }
+              ]
+            },
+            name: {
+              identifier: 'name',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Inserta tu nombre'
+                }
+              ]
+            },
 
-      lastName: {
-            identifier: 'lastName',
-             rules: [
-          {
-            type   : 'empty',
-            prompt : 'Inserta tu apellido'
-          }
-        ]
-      },
+            lastName: {
+              identifier: 'lastName',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Inserta tu apellido'
+                }
+              ]
+            },
 
-      id: {
-            identifier: 'id',
-             rules: [
-          {
-            type: "exactLength[11]",
-            prompt : 'Ingresa Correctamente tu Cedula'
-          }
-        ]
-      },
+            id: {
+              identifier: 'id',
+              rules: [
+                {
+                  type: "exactLength[11]",
+                  prompt: 'Ingresa Correctamente tu Cedula'
+                }
+              ]
+            },
 
-      email: {
-            identifier: 'email',
-             rules: [
-          {
-            type   : 'email',
-            prompt : 'Inserta tu correo electronico correctamente'
-          }
-        ]
-      },
+            email: {
+              identifier: 'email',
+              rules: [
+                {
+                  type: 'email',
+                  prompt: 'Inserta tu correo electronico correctamente'
+                }
+              ]
+            },
 
-      ARS: {
-        identifier  : 'ARS',
-        rules: [
-          {
-            type   : 'empty',
-            prompt : 'Selecciona un ARS'
-          }
-        ]
-      },
-      contact: {
-            identifier: 'contact',
-             rules: [
-          {
-            type   : 'empty',
-            prompt : 'Hace falta un numero de contacto'
-            
-          }
-        ]
-      }, 
+            ARS: {
+              identifier: 'ARS',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Selecciona un ARS'
+                }
+              ]
+            },
+            contact: {
+              identifier: 'contact',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Hace falta un numero de contacto'
+
+                }
+              ]
+            },
           },
 
           inline: true,
           on: 'blur'
         })
-      ;
+        ;
 
       $('.panel.ui.modal')
-        .modal({ 
+        .modal({
           blurring: true
         })
         .modal('attach events', '.panel.item', 'show')
-       ;
-
-    
-      $('.ui.checkbox')
-      .checkbox()
-      ;
-      
-      $('.dropdown')
-      .dropdown()
         ;
-    
-        // create sidebar and attach to menu open
-        $(".ui.sidebar").sidebar("attach events", ".toc.item");
 
 
-        $('a[href^="#"]').click(function(e) {
-            
-              e.preventDefault();
+      $('.ui.checkbox')
+        .checkbox()
+        ;
 
-        
-            var hash = this.hash;
+      $('.dropdown')
+        .dropdown()
+        ;
 
-  
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-              }, 1500, function(){
 
-                window.location.hash = hash;
-              });
-            
-            });
-        
-          });
+      // create sidebar and attach to menu open
+      $(".ui.sidebar").sidebar("attach events", ".toc.item");
+
+
+      $('a[href^="#"]').click(function (e) {
+
+        e.preventDefault();
+
+
+        var hash = this.hash;
+
+
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 1500, function () {
+
+          window.location.hash = hash;
+        });
+
+      });
+
+    });
 
 
 
   </script>
 
 </body>
+
 </html>
-
-
