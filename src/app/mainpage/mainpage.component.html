@@ -383,7 +383,6 @@
           <div class="ui hidden horizontal divider"> </div>
           <div class="ui inverted list">
             <p>Calle Sergio Augusto Veras #23</p>
-            <p>Esquina av. Independencia.</p>
           </div>
 
 
@@ -393,7 +392,6 @@
             <i class="phone icon"></i>Contactos</h4>
           <div class="ui hidden horizontal divider"> </div>
           <div class="ui inverted link list">
-            <div class="ui small inverted header">Llama a nuestro n&uacute;mero para servicio al cliente</div>
             <div class="ui tiny inverted header">809-338-9988</div>
           </div>
         </div>
@@ -479,22 +477,30 @@
       </div>
 
       <div class="ui raised segment">
-        <form class="ui form">
+        <form (ngSubmit)="newCitaOnline(newCitaOnlineForm.value)" [formGroup]="newCitaOnlineForm" class="ui form">
 
           <div class="field">
             <label>Nombre</label>
             <div class="ui input">
-              <input type="text" name="name" placeholder="Nombre del paciente">
+              <input type="text" name="name" formControlName="nombre" placeholder="Nombre del paciente">
             </div>
           </div>
 
           <div class="field">
             <label>Apellido</label>
             <div class="ui input">
-              <input type="text" name="lastName" placeholder="Apellido del paciente">
+              <input type="text" name="lastName" formControlName="apellido" placeholder="Apellido del paciente">
             </div>
           </div>
 
+          <div class="field">
+            <label>Sexo</label>
+            <select name="sexo" formControlName="sexo" class="ui dropdown">
+              <option value="">Elige tu sexo</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+            </select>
+          </div>
 
 
 
@@ -503,7 +509,7 @@
             <div class="ui calendar" id="nacimiento">
               <div class="ui input left icon">
                 <i class="calendar icon"></i>
-                <input type="date" name="birth">
+                <input type="date" formControlName="nacimiento" name="birth">
               </div>
             </div>
           </div>
@@ -514,7 +520,7 @@
             <label>No. C&eacute;dula</label>
 
             <div class="ui input">
-              <input type="text" name="id" placeholder="XXX-XXXXXXX-X">
+              <input type="text" name="id" formControlName="cedula" placeholder="XXX-XXXXXXX-X">
             </div>
           </div>
 
@@ -525,7 +531,7 @@
           <div class="field">
             <label>Correo Electr&oacute;nico</label>
             <div class="ui input">
-              <input type="text" name="email" placeholder="Correo del paciente">
+              <input type="text" name="email" formControlName="correo" placeholder="Correo del paciente">
             </div>
           </div>
 
@@ -534,7 +540,7 @@
           <div class="field">
             <label>N&uacute;m. de Contacto</label>
             <div class="ui input">
-              <input type="text" (keypress)="keyPress($event)" minlength=10 maxlength=12 name="contact"
+              <input type="text" formControlName="telefono" (keypress)="keyPress($event)" minlength=10 maxlength=12 name="contact"
                 placeholder="N&uacute;mero de contacto del paciente">
 
             </div>
@@ -542,21 +548,19 @@
 
           <div class="field">
             <label>Seleccione su ARS</label>
-            <div class="ui fluid selection dropdown">
-              <input type="hidden" name="ARS">
-              <div class="default text">Elige un ARS</div>
-              <i class="dropdown icon"></i>
-              <div class="menu">
-                <div class="item" data-value="0">ARS Humano</div>
-                <div class="item" data-value="1">ARS Palic</div>
-                <div class="item" data-value="2">ARS Universal</div>
-                <div class="item" data-value="3">ARS Yunen</div>
-                <div class="item" data-value="4">ARS Asistanet</div>
-                <div class="item" data-value="5">ARS MetaSalud</div>
-                <div class="item" data-value="6">ARS Simag</div>
-                <div class="item" data-value="7">ARS Senasa</div>
-              </div>
-            </div>
+
+            <select name="ARS" formControlName="ARS" class="ui dropdown">
+              <option value="">Elige ARS</option>
+              <option value="Ninguno">Ninguno</option>
+              <option value="ARS Humano">ARS Humano</option>
+              <option value="ARS Palic">ARS Palic</option>
+              <option value="ARS Universal">ARS Universal</option>
+              <option value="ARS Yunen">ARS Yunen</option>
+              <option value="ARS Asistanet">ARS Asistanet</option>
+              <option value="ARS MetaSalud">ARS MetaSalud</option>
+              <option value="ARS Simag">ARS Simag</option>
+              <option value="ARS Senasa">ARS Senasa</option>
+            </select>
           </div>
 
 
@@ -566,7 +570,7 @@
             <div class="ui calendar" id="solicitada">
               <div class="ui input left icon">
                 <i class="calendar icon"></i>
-                <input name="fechaSoli" type="date">
+                <input name="fechaSoli" formControlName="fechaSolicitada" type="date">
               </div>
             </div>
           </div>
@@ -580,7 +584,7 @@
             <div class="ui calendar" id="hora">
               <div class="ui input left icon">
                 <i class="time icon"></i>
-                <input name="horaSoli" type="time" placeholder="Time">
+                <input name="horaSoli" formControlName="horaSolicitada" type="time" placeholder="Time">
               </div>
             </div>
 
@@ -588,7 +592,7 @@
 
           <div class="field">
             <label>Antecedentes Familiares</label>
-            <textarea name="antecedentes" rows="2"></textarea>
+            <textarea name="antecedentes" formControlName="antecedentes" rows="2"></textarea>
           </div>
 
 
@@ -598,65 +602,56 @@
           <div class="field">
             <label>Contacto de Emergencia</label>
             <div class="ui input">
-              <input type="text" name="contactEmergencia" placeholder="Télefono de un contacto conocido">
+              <input type="text" formControlName="telContacto" name="contactEmergencia" placeholder="Télefono de un contacto conocido">
             </div>
           </div>
 
           <div class="field">
             <label>Parentesco</label>
-            <select name="parentesco" class="ui dropdown">
+            <select name="parentesco" formControlName="parentesco" class="ui dropdown">
               <option value="">Elige parentesco</option>
-              <option value="1">Tio/a</option>
-              <option value="2">Padre/Madre</option>
-              <option value="3">Abuelo/a</option>
-              <option value="4">Hijo/a</option>
-              <option value="5">Hermano/a</option>
+              <option value="Tio/a">Tio/a</option>
+              <option value="Padre/Madre">Padre/Madre</option>
+              <option value="Abuelo/a">Abuelo/a</option>
+              <option value="Hijo/a">Hijo/a</option>
+              <option value="Hermano/a">Hermano/a</option>
             </select>
           </div>
-
-
-
-
-
-
-
 
           <div class="field">
             <label>Motivo de Consulta</label>
             <div class="ui input">
-              <textarea name="motivo" rows="2"></textarea>
+              <textarea name="motivo" formControlName="motivo" rows="2"></textarea>
             </div>
           </div>
 
           <div class="field">
-            <label>Servicio</label>
-            <select name="service" class="ui dropdown">
+            <label>Servicio Solicitado</label>
+            <select name="service" formControlName="servicio" class="ui dropdown">
               <option value="">Elige Servicios</option>
-              <option value="0">Endodoncia</option>
-              <option value="1">Blanqueamiento</option>
-              <option value="2">Ortodoncia</option>
-              <option value="3">Periodoncia</option>
-              <option value="4">Prostodoncia</option>
-              <option value="5">Rehabilitacion Oral</option>
-              <option value="6">Odontologia</option>
-              <option value="7">Invisalign</option>
-              <option value="8">Cirugía de 3ros molares</option>
+              <option value="Endodoncia">Endodoncia</option>
+              <option value="Blanqueamiento">Blanqueamiento</option>
+              <option value="Ortodoncia">Ortodoncia</option>
+              <option value="Periodoncia">Periodoncia</option>
+              <option value="Prostodoncia">Prostodoncia</option>
+              <option value="Rehabilitacion Oral">Rehabilitacion Oral</option>
+              <option value="Odontologia">Odontologia</option>
+              <option value="Invisalign">Invisalign</option>
+              <option value="Cirugía de 3ros molares">Cirugía de 3ros molares</option>
             </select>
           </div>
 
-
+          <div class="actions">
+            <input type="submit" class="ui positive approve button" value="Enviar Cita">
+            <div class="ui black cancel button">
+              Cancelar
+            </div>
+          </div>
         </form>
       </div>
 
     </div>
   </div>
-  <div class="actions">
-    <div class="ui green right labeled icon submit button">
-      Enviar Cita
-      <i class="checkmark icon"></i>
-    </div>
-    <div class="ui black cancel button">
-      Cancelar
-    </div>
-  </div>
+  
+  
 </div>

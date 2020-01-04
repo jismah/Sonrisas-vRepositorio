@@ -86,6 +86,28 @@ export class FirestoreService {
     return this.firestore.collection('pacientes').doc(documentId).delete();
   }
 
+// CitaOnline
+public createCitaOnline(data: any) {
+  return this.firestore.collection('CitaOnline').add(data);
+}
+
+public getCitaOnline(documentId: string) {
+  return this.firestore.collection('CitaOnline').doc(documentId).snapshotChanges();
+}
+
+public getCitasOnline() {
+  return this.firestore.collection('CitaOnline').snapshotChanges();
+}
+
+public updateCitaOnline(documentId: string, data: any) {
+  return this.firestore.collection('CitaOnline').doc(documentId).set(data);
+}
+
+public deleteCitaOnline(documentId: string) {
+  return this.firestore.collection('CitaOnline').doc(documentId).delete();
+}
+
+
   // Gatos (Usuarios)
   // Crea un nuevo gato
   public createCat(data: any) {

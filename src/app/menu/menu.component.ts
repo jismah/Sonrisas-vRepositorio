@@ -164,7 +164,7 @@ export class MenuComponent implements OnInit {
 
   public newPaciente(form, documentId = this.documentId) {
     const data = {
-      alergiasypadecimientos: form.antecedentes,
+      alergiasypadecimientos: form.alergiasypadecimientos,
       antecedentes: form.antecedentes,
       apellido: form.apellido,
       cedula: form.cedula,
