@@ -94,7 +94,7 @@ body {
   .masthead.segment {
     min-height: 100vh;
     padding: 1em 0em;
-    background: linear-gradient(rgba(0, 0, 0, 0.904), rgba(0, 0, 0, 0.603)), url('https://lambtonshoresfamilydental.ca/wp-content/uploads/2017/07/dentist-banner.jpg')  !important;
+    background: linear-gradient(rgba(0, 0, 0, 0.704), rgba(0, 0, 0, 0.403)), url('../../assets/DentistWall.jpg')  !important;
     background-size: cover !important;
     height: 90%;
     background-attachment: fixed;

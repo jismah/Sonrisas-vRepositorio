@@ -32,6 +32,11 @@ export class FirestoreService {
   }
 
   //Dentistas
+  public createDentista(data: any) {
+    return this.firestore.collection('dentista').add(data);
+  }
+
+
   public getDentistas() {
     return this.firestore.collection('dentista').snapshotChanges();
   }

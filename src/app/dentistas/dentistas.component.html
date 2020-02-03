@@ -1,1 +1,95 @@
 <app-navbar></app-navbar>
+
+<div id="maincontent" class="ui main container">
+
+  <div class="ui hidden divider"></div>
+
+  <div class="ui stackable grid">
+
+    <div class="ten wide column">
+
+
+      <div class="ui raised center aligned terciary inverted segment">
+        <h2>Gestion de Dentistas</h2>
+      </div>
+
+      <div class="ui hidden divider"></div>
+
+      <div class="ui raised segment">
+
+        <a class="ui green ribbon label">Formulario de Dentistas nuevos</a>
+
+
+        <form (ngSubmit)="newDentista(newDentistaForm.value)" [formGroup]="newDentistaForm" class="ui form">
+
+          <div class="ui hidden divider"></div>
+
+          <div class="two fields">
+
+            <div class="field">
+              <label>Nombre</label>
+              <div class="ui input">
+                <input type="text" formControlName="nombre" placeholder="Nombre del Dentista">
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Apellido</label>
+              <div class="ui input">
+                <input type="text" formControlName="apellido" placeholder="Apellido del Dentista">
+              </div>
+            </div>
+          </div>
+          <div class="two fields">
+
+            <div class="field">
+              <label>Cedula</label>
+              <div class="ui input">
+                <input type="text" name="id" formControlName="cedula" placeholder="XXX-XXXXXXX-X">
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Telefono</label>
+              <div class="ui input">
+                <input type="text" (keypress)="keyPress($event)" minlength=10 maxlength=10 formControlName="telefono" placeholder="Telefono del Dentista">
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Especialidad</label>
+            <select name="service" formControlName="especialidad" class="ui dropdown">
+              <option value="">Elige Especialidad</option>
+              <option value="Endodoncia">Endodoncia</option>
+              <option value="Blanqueamiento">Blanqueamiento</option>
+              <option value="Ortodoncia">Ortodoncia</option>
+              <option value="Periodoncia">Periodoncia</option>
+              <option value="Prostodoncia">Prostodoncia</option>
+              <option value="Rehabilitacion Oral">Rehabilitacion Oral</option>
+              <option value="Odontologia">Odontologia</option>
+              <option value="Invisalign">Invisalign</option>
+              <option value="Cirujano de 3ros molares">Cirujano de 3ros molares</option>
+            </select>
+          </div>
+
+          <div class="ui hidden divider"></div>
+          
+
+          <div class="actions">
+            <input type="submit" class="ui positive approve button" value="Guardar Dentista">
+          </div>
+
+        </form>
+      </div>
+
+
+
+
+    </div>
+
+
+
+  </div>
+
+</div>

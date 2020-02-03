@@ -1,0 +1,18 @@
+body {
+    height: calc(100% - 7em) !important;
+    background: lighten(rgb(255, 255, 255),1);
+}
+  
+
+#maincontent {
+    margin-top: 7em;
+    margin-bottom: -7em;
+
+  
+  
+}
+
+.ribbon {
+    margin-bottom: 1.3em;
+    cursor: default;
+}
